@@ -5,7 +5,7 @@ const internModel = require("../models/internModel")
 
 
 const createCollege = async function (req, res) {
-
+ res.setHeader('Access-Control-Allow-Origin','*')
     try {
         let data = req.body;
         let { name, fullName, logoLink } = data;
@@ -38,6 +38,7 @@ const createCollege = async function (req, res) {
 }
 
 const getCollegeInterns = async function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin','*')
     try {
         let data = req.query;
         if (Object.keys(data).length == 0) return res.status(400).send({ status: false, msg: "Please give query to fetch intern details" })
